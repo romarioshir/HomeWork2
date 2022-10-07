@@ -1,12 +1,12 @@
-﻿int EnterNumber()
+﻿double EnterNumber()
 {
-    int num;
+    double num;
 
     while (true)
     {
         Console.Write("Введите целое число: ");
 
-        if (int.TryParse(Console.ReadLine(), out num))
+        if (double.TryParse(Console.ReadLine(), out num))
             break;
 
         else
@@ -15,13 +15,15 @@
     return num;
 }
 
-int a = EnterNumber();
-
+double a = EnterNumber();
 
 if (a < 100 && a > -99)
+{
     Console.WriteLine($"{a} -> Третьей цифры нет");
-
-    // отсюда я долго ломал голову. не знаю как найти третью цифру в числе, если число может быть бесконечным.
-
-else if (a > 99) 
-    Console.WriteLine($"{a} -> ");
+}
+// отсюда я долго ломал голову. не знаю как найти третью цифру в числе, если число может быть бесконечным.
+else if (a > 99)
+{
+    string text = a.ToString();
+    Console.WriteLine($"{a} ->  {text[2]}");
+}
